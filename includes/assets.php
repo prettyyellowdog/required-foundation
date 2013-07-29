@@ -77,16 +77,9 @@ add_action( 'wp_enqueue_scripts', 'required_load_scripts' );
 function required_load_styles() {
 
     wp_register_style(
-        'normalize', //handle
-        get_template_directory_uri() . '/stylesheets/normalize.css',
-        null,
-        FOUNDATION_VERSION //version
-    );
-
-    wp_register_style(
         'style', //handle
-        get_stylesheet_uri(),
-        array( 'normalize' ),
+        get_template_directory_uri() . '/stylesheets/required-foundation.css',
+        null,
         required_get_theme_version() //version
     );
 

@@ -18,21 +18,22 @@ get_header(); ?>
 
 			<div class="post-box">
 
-			<?php if ( have_posts() ) : ?>
-
-				<?php while ( have_posts() ) : the_post(); ?>
-
-					<?php get_template_part( 'content', get_post_format() ); ?>
-
-				<?php endwhile; ?>
-
-			<?php else : ?>
-				<?php get_template_part( 'content', 'none' ); ?>
-			<?php endif; ?>
-
-			<?php if ( function_exists( 'required_pagination' ) ) {
-				required_pagination();
-			} ?>
+				<?php if ( have_posts() ) : ?>
+	
+					<?php while ( have_posts() ) : the_post(); ?>
+	
+						<?php get_template_part( 'content', get_post_format() ); ?>
+	
+					<?php endwhile; ?>
+	
+				<?php else : ?>
+					<?php get_template_part( 'content', 'none' ); ?>
+				<?php endif; ?>
+	
+				<?php if ( function_exists( 'required_pagination' ) ) {
+						required_pagination();
+					} 
+				?>
 			</div>
 
 		</div><!-- /#main -->

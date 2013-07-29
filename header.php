@@ -33,8 +33,10 @@
 </head>
 <body <?php body_class(); ?>>
 	<!-- Start the main container -->
-	<div id="container" role="document">
-		<?php get_template_part( 'nav' ); ?>
+	<?php get_template_part( 'nav' ); ?>
+	
+	<?php do_action('required_before_content'); ?>
+		
 		<!-- Row for blog navigation -->
 		<div class="row">
 			<header id="required-header" class="large-12 columns required-header" role="banner">
