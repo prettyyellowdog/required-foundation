@@ -77,10 +77,17 @@ add_action( 'wp_enqueue_scripts', 'required_load_scripts' );
 function required_load_styles() {
 
     wp_register_style(
-        'style', //handle
+        'style',
         get_template_directory_uri() . '/stylesheets/required-foundation.css',
         null,
-        required_get_theme_version() //version
+        required_get_theme_version()
+    );
+    
+    wp_register_style(
+        'font-awesome',
+        get_template_directory_uri() . '/stylesheets/font-awesome.min.css',
+        array( 'style' ),
+        FOUNDATION_VERSION
     );
 
     // Off Canvas Styles, only used on certain page templates
@@ -98,6 +105,7 @@ function required_load_styles() {
 
     // Load our Stylesheets
     wp_enqueue_style( 'style' );
+    wp_enqueue_style( 'font-awesome' );
 
 }
 add_action( 'wp_enqueue_scripts', 'required_load_styles' );
