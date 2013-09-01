@@ -42,10 +42,8 @@ get_header(); ?>
 			</div>
 		</div>
 
-		<aside id="sidebar" class="large-4 columns" role="complementary">
-			<div class="sidebar-box">
-				<?php get_sidebar(); ?>
-			</div>
-		</aside><!-- /#sidebar -->
+		
+		<?php get_sidebar(); ?>
+			
 	</div>
 <?php get_footer(); ?>

@@ -34,15 +34,11 @@ get_header(); ?>
 
 		</div><!-- /#main -->
 
-		<aside id="sidebar" class="large-4 columns" role="complementary">
+		
 
-			<div class="sidebar-box">
+		<?php get_sidebar(); ?>
 
-				<?php get_sidebar(); ?>
-
-			</div>
-
-		</aside><!-- /#sidebar -->
+			
 
 	</div><!-- End Content row -->
 

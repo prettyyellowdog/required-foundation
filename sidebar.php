@@ -6,6 +6,8 @@
  * @since required+ Foundation 0.1.0
  */
 ?>
+	<aside id="sidebar" class="large-4 columns" role="complementary">
+			<div class="sidebar-box">
         <!-- START: sidebar.php -->
 		<div id="secondary" class="widget-area" role="complementary">
 			<?php if ( ! dynamic_sidebar( 'sidebar-main' ) ) : ?>
@@ -21,3 +23,5 @@
 			<?php endif; // end sidebar widget area ?>
 		</div><!-- #secondary .widget-area -->
         <!-- END: sidebar.php -->
+    </div>
+	</aside><!-- /#sidebar -->
