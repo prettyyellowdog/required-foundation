@@ -16,7 +16,7 @@ get_header(); ?>
 	<!-- Row for main content area -->
 	<div id="content" class="row">
 
-		<div id="main" class="large-8 columns" role="main">
+		<div id="main" class="<?php do_action( 'contentAction' ); ?>  columns" role="main">
 
 			<div class="post-box">
 

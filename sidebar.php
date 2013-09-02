@@ -6,7 +6,7 @@
  * @since required+ Foundation 0.1.0
  */
 ?>
-	<aside id="sidebar" class="large-4 columns" role="complementary">
+	<aside id="sidebar" class="<?php do_action( 'sidebarAction' ); ?> columns" role="complementary">
 			<div class="sidebar-box">
         <!-- START: sidebar.php -->
 		<div id="secondary" class="widget-area" role="complementary">

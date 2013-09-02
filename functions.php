@@ -1,4 +1,6 @@
 <?php
+
+
 /**
  * required+ Foundation functions and definitions
  *
@@ -101,6 +103,12 @@ require_once( 'includes/assets.php' );
  * REQ_Editor_Styles()
  */
 require_once( 'includes/editor.php' );
+
+/**
+	Layout Options that can be defined in child theme
+
+*/
+
 
 
 if ( ! function_exists( 'required_themesetup' ) ):
@@ -259,4 +267,22 @@ add_action( 'required_credits', 'required_sample_credits' );
 
 function required_sample_credits() {
 	_e( '<p>This site runs on the <a href="http://themes.required.ch/" title="required+ Themes">required+ Foundation</a> Theme. Based on the awesome <a href="http://foundation.zurb.com/" title="Rapid prototyping and building library from ZURB.">Foundation</a> Framework by the humble folks at <a href="http://www.zurb.com/" title="Design for people">ZURB</a>.</p>', 'requiredfoundation' );
+}
+
+if (!(function_exists('sidebarWidth'))) {
+	function sidebarWidth(){
+		$widthAside = 'large-4';
+		echo $widthAside;
+	}
+	
+	add_action( 'sidebarAction', 'sidebarWidth' );
+}
+
+if (!(function_exists('contentWidth'))) {
+	function contentWidth(){
+		$widthContent = 'large-8';
+		echo $widthContent;
+	}
+	
+	add_action( 'contentAction', 'contentWidth' );
 }
