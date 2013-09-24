@@ -23,8 +23,7 @@
 		
 		<footer id="footer" class="row">
 			<div class="large-4 columns">
-				<?php do_action( 'required_credits' ); ?>
-				<p><a href="<?php echo esc_url( __( 'http://wordpress.org/', 'requiredfoundation' ) ); ?>" title="<?php esc_attr_e( 'Semantic Personal Publishing Platform', 'requiredfoundation' ); ?>" rel="generator"><?php printf( __( 'Proudly powered by %s', 'requiredfoundation' ), 'WordPress' ); ?></a></p>
+				<p></p>
 			</div>
 			<div class="large-8 columns">
 				<?php wp_nav_menu( array(
