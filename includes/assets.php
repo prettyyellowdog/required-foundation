@@ -12,23 +12,48 @@
  * @since  required+ Foundation 0.1.0
  * @return void
  */
+ 
+function modify_jquery() {
+	if (!is_admin()) {
+		wp_deregister_script('jquery');
+		wp_register_script(
+			'jquery', 
+			get_template_directory_uri() . '/javascripts/vendor/jquery.js',
+			array( 'modernizr-custom' ), 
+			FOUNDATION_VERSION, 
+			true);
+		wp_enqueue_script('jquery');
+	}
+}
+add_action('init', 'modify_jquery'); 
+ 
 function required_load_scripts() {
 
     wp_register_script(
         'modernizr-custom', //handle
-        get_template_directory_uri() . '/javascripts/vendor/custom.modernizr.js', //source
+        get_template_directory_uri() . '/javascripts/vendor/modernizr.js', //source
         null, //dependencies
         FOUNDATION_VERSION, //version
         false
     );
-
-	wp_register_script(
-        'foundation', //handle
-        get_template_directory_uri() . '/javascripts/foundation/foundation.min.js', //source
+    
+    wp_register_script(
+        'fastclick', //handle
+        get_template_directory_uri() . '/javascripts/vendor/fastclick.js', //source
         array( 'jquery' ), //dependencies
         FOUNDATION_VERSION, //version
 	    true //run in footer
     );
+
+	wp_register_script(
+        'foundation', //handle
+        get_template_directory_uri() . '/javascripts/foundation.min.js', //source
+        array( 'jquery', 'fastclick' ), //dependencies
+        FOUNDATION_VERSION, //version
+	    true //run in footer
+    );
+    
+    
 
 	
 	// offcanvas.js - depending on foundation.js
@@ -78,7 +103,7 @@ function required_load_styles() {
 
     wp_register_style(
         'style',
-        get_template_directory_uri() . '/stylesheets/required-foundation.css',
+        get_template_directory_uri() . '/stylesheets/foundation.min.css',
         null,
         required_get_theme_version()
     );
