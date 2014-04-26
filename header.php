@@ -34,13 +34,3 @@
 	
 	<?php do_action('required_before_content'); ?>
 		
-		<!-- Row for blog navigation -->
-		<div class="row">
-			<header id="required-header" class="large-12 columns required-header" role="banner">
-				<hgroup>
-					<a id="site-title" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
-				</hgroup>
-				<?php get_template_part( 'custom-header' ); ?>
-				<hr />
-			</header>
-		</div><!-- // header.php -->

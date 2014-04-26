@@ -15,31 +15,28 @@
  * @return string
  */
 function required_pagination( $center = false ) {
-	global $wp_query;
-
-	$big = 999999999; // This needs to be an unlikely integer
-
-    $centered = $center == true ? ' pagination-centered' : '';
-
-	// For more options and info view the docs for paginate_links()
-	// http://codex.wordpress.org/Function_Reference/paginate_links
-	$paginate_links = paginate_links( array(
-		'base' => str_replace( $big, '%#%', get_pagenum_link($big) ),
-		'current' => max( 1, get_query_var('paged') ),
-		'total' => $wp_query->max_num_pages,
-		'mid_size' => 5,
-		'prev_next' => True,
-	    'prev_text' => __( '&laquo;', 'requiredfoundation' ),
-	    'next_text' => __( '&raquo;', 'requiredfoundation' ),
-		'type' => 'list'
-	) );
-
-	// Display the pagination if more than one page is found
-	if ( $paginate_links ) {
-		echo '<div class="required-pagination' . $centered . '">';
-		echo $paginate_links;
-		echo '</div><!--// end .pagination -->';
-	}
+    global $wp_query;
+    $big = 999999999; // need an unlikely integer
+    $pages = paginate_links( array(
+            'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
+            'format' => '?paged=%#%',
+            'current' => max( 1, get_query_var('paged') ),
+            'total' => $wp_query->max_num_pages,
+            'prev_next' => false,
+            'type'  => 'array',
+            'prev_next'   => TRUE,
+			'prev_text'    => __('&laquo;'),
+			'next_text'    => __('&raquo;'),
+        ) );
+        
+        if( is_array( $pages ) ) {
+            $paged = ( get_query_var('paged') == 0 ) ? 1 : get_query_var('paged');
+            echo '<ul class="pagination">';
+            foreach ( $pages as $page ) {
+                    echo "<li>$page</li>";
+            }
+           echo '</ul>';
+        }
 }
 
 /**
